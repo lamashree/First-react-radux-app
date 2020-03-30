@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import lodash from 'lodash';
 import { Link } from 'react-router-dom'
-
 class UserList extends React.Component {
 
     // constructor() {
@@ -56,11 +55,11 @@ class UserList extends React.Component {
                         }
                     </tbody>
                 </table>
-                <Link to="/">
+                {/* <Link to="/">
                     <button type="button" class='btn btn-primary'>
                         Back to SignUp
                     </button>
-                </Link>
+                </Link> */}
             </div>
         )
     }
