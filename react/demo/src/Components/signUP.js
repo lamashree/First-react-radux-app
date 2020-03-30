@@ -2,6 +2,7 @@ import React from 'react';
 import * as userAction from '../actions/userAction';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Redirect } from 'react-router-dom';
 
 class SignUp extends React.Component {
 
@@ -11,32 +12,39 @@ class SignUp extends React.Component {
             firstName: '',
             lastName: '',
             email: '',
-            password: ''
+            password: '',
+            navigate: false
 
         }
     }
     handlechange = (event) => {
-        console.log("handle change is working", event.target.value)
         const { name, value } = event.target;
         this.setState({
             [name]: value
 
         })
     }
-    componentWillMount = () => {
-        this.loadUserLists();
-    }
 
-    loadUserLists = () => {
-        this.props.actions.loadUserData();
-    }
 
     submit = (event) => {
-        console.log("input messages", this.state)
-
         event.preventDefault()
+        let sampleData = {
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            email: this.state.email,
+            password: this.state.password
+
+
+        }
+        this.props.actions.addUserData(sampleData)
+        this.setState({
+            navigate: true
+        })
     }
     render() {
+        if (this.state.navigate) {
+            return <Redirect to='/userlist' />
+        }
         return (
             <form onSubmit={this.submit}>
 
@@ -63,6 +71,11 @@ class SignUp extends React.Component {
                 <div className="form-group">
                     <input type="submit" className="btn btn-primary" value="submit" />
                 </div>
+
+                <div className="form-group">
+                    <input type="submit" className="btn btn-danger" value="Cancel" />
+                </div>
+
             </form>
         )
     }

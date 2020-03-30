@@ -5,19 +5,19 @@ var sampleJson = [
       "firstName": "Test",
       "lastName": "Test Test",
       "email": "test@gmail.com",
-      "phone": "XXXXXXXXXX"
+      "password": "XXXXXXXXXX"
     },
     {
       "firstName": "Test Two",
       "lastName": "Test Test",
       "email": "testtwo@gmail.com",
-      "phone": "XXXXXXXXXX"
+      "password": "XXXXXXXXXX"
     },
     {
       "firstName": "Test Thrid",
       "lastName": "Test Test",
       "email": "testthrid@gmail.com",
-      "phone": "XXXXXXXXXX"
+      "password": "XXXXXXXXXX"
     }
   ] 
 
@@ -31,3 +31,12 @@ export function loadUserData() {
         dispatch(loadUserLists(sampleJson))
     }
 }
+export function addUserData(sampleData) {
+  console.log('this is a add user sampleData', sampleData)
+  
+  sampleJson.push(sampleData)
+  return function (dispatch) {
+      dispatch(loadUserLists(sampleJson))
+  }
+}
+
