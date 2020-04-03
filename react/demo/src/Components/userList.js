@@ -22,6 +22,7 @@ class UserList extends React.Component {
     }
 
     loadUserLists = () => {
+        console.log("userlist")
         this.props.actions.loadUserData();
     }
 

@@ -2,7 +2,7 @@ import React from 'react';
 import * as userAction from '../actions/userAction';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 class SignUp extends React.Component {
 
@@ -73,7 +73,7 @@ class SignUp extends React.Component {
                 </div>
 
                 <div className="form-group">
-                    <input type="submit" className="btn btn-danger" value="Cancel" />
+                    <Link to ="/userlist" className="btn btn-danger"> Cancel </Link> 
                 </div>
 
             </form>
